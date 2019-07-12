@@ -18,4 +18,17 @@ axios
       placement.appendChild(tabMaker(i));
     });
     console.log(tab);
+  })
+
+  .catch(e => {
+    console.log(
+      "The site broke, but you don't blame me -- I am just a student!"
+    );
   });
+
+function makingMyTab(element) {
+  const myTab = document.createElement("div");
+  myTab.classList.add("tab");
+  myTab.textContent = element;
+  return myTab;
+}
