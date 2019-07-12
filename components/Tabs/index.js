@@ -11,9 +11,10 @@ axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
     const isolateTab = response.data.topics;
+
     isolateTab.forEach(tab => {
       const placeHolder = document.querySelector(".topics");
-      placeHolder.appendChild(tabMaker(tab));
+      placeHolder.appendChild(MakingTabs(tab));
     });
   })
   .catch(error => {
