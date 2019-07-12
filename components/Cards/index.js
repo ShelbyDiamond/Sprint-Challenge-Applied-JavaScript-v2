@@ -39,4 +39,33 @@ axios
     .catch(error => {
     console.log(
       "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
-    );
+    )
+  });
+    
+function build(sprint) {
+  const blankCard = document.createElement("div")
+  blankCard.classList.add("card")
+
+  const headline = document.createElement("div")
+  headline.classList.add("headline")
+  headline.textContent = sprint.headline
+  blankCard.appendChild(headline)
+
+  const author = document.createElement("div")
+  author.classList.add("author")
+  blankCard.appendChild(author)
+
+  const img = document.createElement("div")
+  img.classList.add("img-container")
+  blankCard.appendChild(img)
+
+  const enterImg = document.createElement("img")
+  enterImg.src = sprint.authorPhoto
+  img.appendChild(enterImg)
+
+  const credit = document.createElement("span")
+  credit.textContent = sprint.authorName
+  author.appendChild(credit)
+
+  return blankCard
+}
