@@ -21,51 +21,51 @@
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(response => {
-    const javaScr = response.data.articles.javacript.map(funct => card(funct))
-    javaScr.forEach(funct => funct.setAttribute("data-subject", "javascript"))
+    const javaScr = response.data.articles.javacript.map(funct => card(funct));
+    javaScr.forEach(funct => funct.setAttribute("data-subject", "javascript"));
 
-    const bootSt = response.data.articles.bootstrap.map(funct => card(funct))
-    bootSt.forEach(funct => funct.setAttribute("data-subject", "bootstrap"))
+    const bootSt = response.data.articles.bootstrap.map(funct => card(funct));
+    bootSt.forEach(funct => funct.setAttribute("data-subject", "bootstrap"));
 
-    const tech = response.data.articles.technology.map(funct => card(funct))
-    tech.forEach(funct => funct.setAttribute("data-subject", "technology"))
+    const tech = response.data.articles.technology.map(funct => card(funct));
+    tech.forEach(funct => funct.setAttribute("data-subject", "technology"));
 
     const jQuery = response.data.articles.technology.map(funct => card(funct));
-    jQuery.forEach(funct => funct.setAttribute("data-subject", "jQuery"))
+    jQuery.forEach(funct => funct.setAttribute("data-subject", "jQuery"));
 
     const node = response.data.articles.technology.map(funct => card(funct));
-    node.forEach(funct => funct.setAttribute("data-subject", "node"))
-    
-    .catch(error => {
+    node.forEach(funct => funct.setAttribute("data-subject", "node"));
+  })
+  .catch(error => {
     console.log(
       "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
-    )
+    );
   });
-    
+
 function build(sprint) {
-  const blankCard = document.createElement("div")
-  blankCard.classList.add("card")
+  const blankCard = document.createElement("div");
+  blankCard.classList.add("card");
 
-  const headline = document.createElement("div")
-  headline.classList.add("headline")
-  headline.textContent = sprint.headline
-  blankCard.appendChild(headline)
+  const headline = document.createElement("div");
+  headline.classList.add("headline");
+  headline.textContent = sprint.headline;
+  blankCard.appendChild(headline);
 
-  const author = document.createElement("div")
-  author.classList.add("author")
-  blankCard.appendChild(author)
+  const author = document.createElement("div");
+  author.classList.add("author");
+  blankCard.appendChild(author);
 
-  const img = document.createElement("div")
-  img.classList.add("img-container")
-  blankCard.appendChild(img)
+  const img = document.createElement("div");
+  img.classList.add("img-container");
+  blankCard.appendChild(img);
 
-  const enterImg = document.createElement("img")
-  enterImg.src = sprint.authorPhoto
-  img.appendChild(enterImg)
+  const enterImg = document.createElement("img");
+  enterImg.src = sprint.authorPhoto;
+  img.appendChild(enterImg);
 
-  const credit = document.createElement("span")
-  credit.textContent = sprint.authorName
-  author.appendChild(credit)
+  const credit = document.createElement("span");
+  credit.textContent = sprint.authorName;
+  author.appendChild(credit);
 
-  return blankCard
+  return blankCard;
 }
