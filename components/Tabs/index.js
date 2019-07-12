@@ -9,28 +9,22 @@
 //    <div class="tab">topic here</div>
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
-
   .then(response => {
-    const isolatingMyTab = response.data.topics;
-
-    console.log(isolatingMyTab);
-
-    isolatingMyTab.forEach(i => {
-      const placement = document.querySelector(".topics");
-      placement.appendChild(tabMaker(i));
+    const isolateTab = response.data.topics;
+    isolateTab.forEach(tab => {
+      const placeHolder = document.querySelector(".topics");
+      placeHolder.appendChild(tabMaker(tab));
     });
-    console.log(tab);
   })
-
-  .catch(e => {
+  .catch(error => {
     console.log(
       "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
     );
   });
 
-function makingMyTab(element) {
-  const myTab = document.createElement("div");
-  myTab.classList.add("tab");
-  myTab.textContent = element;
-  return myTab;
+function MakingTabs(information) {
+  const tab1 = document.createElement("div");
+  tab1.classList.add("tab");
+  tab1.textContent = information;
+  return tab1;
 }
