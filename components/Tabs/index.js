@@ -22,7 +22,7 @@ axios
 
   .catch(e => {
     console.log(
-      "The site broke, but you don't blame me -- I am just a student!"
+      "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
     );
   });
 
