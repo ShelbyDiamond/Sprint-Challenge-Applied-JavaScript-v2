@@ -31,7 +31,7 @@ axios
     );
   });
 
-function cardForArticles(cards) {
+function cardForArticles(developer) {
   const card = document.createElement("div");
   const headline = document.createElement("div");
   const authors = document.createElement("div");
@@ -39,44 +39,23 @@ function cardForArticles(cards) {
   const img = document.createElement("img");
   const byAuthorName = document.createElement("span");
 
-  // headline.classList.add(".headline");
-  // authors.classList.add(".author");
+  card.classList.add(".headline");
+  author.classList.add(".author");
   // card.classList.add(".cards-container");
   // imgContainer.classList.add(".img-container");
 
-  headline.textcontent = `${cards.data.headline}`;
-  authors.textContent = `${cards.data.authors}`;
-  byAuthorName.textContent = `By: ${cards.data.byAuthorName}`;
+  headline.textcontent = `${developer.data.headline}`;
+  authors.textContent = `${developer.data.authors}`;
+  byAuthorName.textContent = `By: ${developer.data.byAuthorName}`;
   // imgContainer.setAttribute("src", `$`)
   // img.setAttribute("src", `${cards.data.URL}`);
 
   card.appendChild(headline);
-  cards.appendChild(cardInfo);
+  author.appendChild(".img-container");
+  author.appendChild(img);
+  author.appendChild(byAuthorName);
 
-  cardInfo.appendChild(name);
-  cardInfo.appendChild(username);
-  cardInfo.appendChild(location);
-  cardInfo.appendChild(profile);
-  cardInfo.appendChild(followers);
-  cardInfo.appendChild(following);
-  cardInfo.appendChild(bio);
+  const cards = document.querySelector(".cards");
+  cards.appendChild(card);
+  console.log(card);
 }
-
-//   const cards = document.querySelector(".cards");
-//   cards.appendChild(newCard);
-//   console.log(newCard);
-// }
-
-// const followersArray = [
-//   "tetondan",
-//   "dustinmyers",
-//   "justsml",
-//   "luishrd",
-//   "bigknell"
-// ];
-// followersArray.forEach(element => {
-//   axios.get(`https://api.github.com/users/${element}`).then(data => {
-//     cardHolder(data);
-//     console.log(data);
-//   });
-// });
