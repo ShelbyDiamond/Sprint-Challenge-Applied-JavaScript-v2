@@ -37,12 +37,46 @@ function cardForArticles(cards) {
   const authors = document.createElement("div");
   const imgContainer = document.createElement("div");
   const img = document.createElement("img");
-  const byAutherName = document.createElement("span");
+  const byAuthorName = document.createElement("span");
 
-  card.classList.add(".cards-container");
-  headline.classList.add(".headline");
-  authors.classList.add(".author");
-  imgContainer.classList.add(".img-container");
+  // headline.classList.add(".headline");
+  // authors.classList.add(".author");
+  // card.classList.add(".cards-container");
+  // imgContainer.classList.add(".img-container");
 
-  headline.textcontent = "${cardForArticles.data.name}";
+  headline.textcontent = `${cards.data.headline}`;
+  authors.textContent = `${cards.data.authors}`;
+  byAuthorName.textContent = `By: ${cards.data.byAuthorName}`;
+  // imgContainer.setAttribute("src", `$`)
+  // img.setAttribute("src", `${cards.data.URL}`);
+
+  card.appendChild(headline);
+  cards.appendChild(cardInfo);
+
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(username);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
 }
+
+//   const cards = document.querySelector(".cards");
+//   cards.appendChild(newCard);
+//   console.log(newCard);
+// }
+
+// const followersArray = [
+//   "tetondan",
+//   "dustinmyers",
+//   "justsml",
+//   "luishrd",
+//   "bigknell"
+// ];
+// followersArray.forEach(element => {
+//   axios.get(`https://api.github.com/users/${element}`).then(data => {
+//     cardHolder(data);
+//     console.log(data);
+//   });
+// });
