@@ -10,9 +10,11 @@
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
 
-  .then(tab => {
-    const isolatingMyTab = tab.data.topics;
+  .then(response => {
+    const isolatingMyTab = response.data.topics;
+
     console.log(isolatingMyTab);
+
     isolatingMyTab.forEach(i => {
       const placement = document.querySelector(".topics");
       placement.appendChild(tabMaker(i));
