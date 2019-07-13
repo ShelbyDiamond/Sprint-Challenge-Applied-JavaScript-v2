@@ -14,10 +14,14 @@ axios
     const newTab = response.data.topics;
 
     newTab.forEach(tab => {
+      if (tab === "node.js") {
+        tab = "node";
+      }
       const placeHolder = document.querySelector(".topics");
       const makeTab = makingTabs(tab);
       placeHolder.appendChild(makeTab);
       console.log(makeTab.dataset.subject);
+
       makeTab.addEventListener("click", element => {
         const cards = document.querySelectorAll(".card");
         cards.forEach(card => (card.style.display = "none"));
@@ -30,7 +34,8 @@ axios
   })
   .catch(error => {
     console.log(
-      "This site broke, just kidding -- it's a small error, but you can't blame me -- I am just a student!"
+      "This site broke, just kidding -- it's a small error, but you can't blame me -- I am just a student!",
+      error
     );
   });
 
