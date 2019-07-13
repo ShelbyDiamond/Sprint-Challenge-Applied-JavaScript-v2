@@ -26,7 +26,7 @@ axios
     for (topic of Object.entries(setUp)) {
       console.log(topic);
       topic[1].map(information1 => {
-        const madeCard = cardForArticles(information1);
+        const madeCard = information1;
         madeCard.setAttribute("data-subject", topic[0]);
       });
     }
@@ -34,7 +34,8 @@ axios
 
   .catch(error => {
     console.log(
-      "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
+      "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!",
+      error
     );
   });
 
