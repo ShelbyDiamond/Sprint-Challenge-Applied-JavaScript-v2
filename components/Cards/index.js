@@ -21,41 +21,50 @@
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(response => {
-    cardForArticles(response.data.articles);
-    console.log(data);
+    // for each in articles, map across each topic and set attribute to literal topic
+    const setUp = response.data.articles;
+    for (topic of Object.entries(setUp)) {
+      console.log(topic);
+      topic[1].map(information1 => {
+        const madeCard = cardForArticles(information1);
+        madeCard.setAttribute("data-subject", topic[0]);
+      });
+    }
   })
+
   .catch(error => {
     console.log(
-      "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!",
-      error
+      "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
     );
   });
 
-function cardForArticles(developer) {
-  const card = document.createElement("div");
+function cardForArticles(information1) {
+  const myCard = document.createElement("div");
+  myCard.classList.add("card");
+
   const headline = document.createElement("div");
-  const authors = document.createElement("div");
-  const imgContainer = document.createElement("div");
-  const img = document.createElement("img");
-  const byAuthorName = document.createElement("span");
+  headline.classList.add("headline");
+  headline.textContent = information1.headline;
+  myCard.appendChild(headline);
 
-  card.classList.add(".headline");
-  author.classList.add(".author");
-  // card.classList.add(".cards-container");
-  // imgContainer.classList.add(".img-container");
+  const author = document.createElement("div");
+  author.classList.add("author");
+  myCard.appendChild(author);
 
-  headline.textcontent = `${developer.data.headline}`;
-  authors.textContent = `${developer.data.authors}`;
-  byAuthorName.textContent = `By: ${developer.data.byAuthorName}`;
-  // imgContainer.setAttribute("src", `$`)
-  // img.setAttribute("src", `${cards.data.URL}`);
-
-  card.appendChild(headline);
-  author.appendChild(".img-container");
+  const img = document.createElement("div");
+  img.classList.add("img-container");
   author.appendChild(img);
-  author.appendChild(byAuthorName);
 
-  const cards = document.querySelector(".cards");
-  cards.appendChild(card);
-  console.log(card);
+  const actualImg = document.createElement("img");
+  actualImg.src = information1.authorPhoto;
+  img.appendChild(actualImg);
+
+  const byline = document.createElement("span");
+  byline.textContent = information1.authorName;
+  author.appendChild(byline);
+
+  const placer = document.querySelector(".cards-container");
+  placer.appendChild(myCard);
+
+  return myCard;
 }
