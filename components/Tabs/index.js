@@ -14,10 +14,12 @@ axios
     const newTab = response.data.topics;
 
     newTab.forEach(tab => {
-      tab === "node.js" && (tab = "node");
-
+      if (tab === "node.js") {
+        tab = "node";
+      }
+      const placeHolder = document.querySelector(".topics");
       const makeTab = makingTabs(tab);
-      document.querySelector(".topics").appendChild(makeTab);
+      placeHolder.appendChild(makeTab);
       console.log(makeTab.dataset.subject);
 
       makeTab.addEventListener("click", element => {
