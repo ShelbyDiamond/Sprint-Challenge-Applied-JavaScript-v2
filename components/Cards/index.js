@@ -36,11 +36,12 @@ axios
       "This site broke, just kidding -- it's a small error, but you don't blame me -- I am just a student!"
     );
   });
+
 function cardForArticles(information1) {
   const myCard = document.createElement("div");
   myCard.classList.add("card");
-  const headline = document.createElement("div");
 
+  const headline = document.createElement("div");
   headline.classList.add("headline");
   headline.textContent = information1.headline;
   myCard.appendChild(headline);
